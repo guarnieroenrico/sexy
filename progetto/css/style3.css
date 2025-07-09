@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a1a, #330000);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Video Container Styling --- */
+.video-container {
+    display: flex; /* Arranges videos side-by-side */
+    gap: 20px; /* Adds space between videos */
+    margin-bottom: 40px; /* Space below the video container */
+    flex-wrap: wrap; /* Allows videos to wrap to the next line on smaller screens */
+    justify-content: center; /* Centers videos if they don't fill the width */
+    width: 100%; /* Take full width of the body's content area */
+}
+
+.video-container video {
+    width: 35vw; /* Each video takes up almost half the viewport width */
+    max-width: 350px; /* Prevents videos from becoming too large */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Adds a subtle shadow */
+}
+
+/* --- Gallery Container Styling --- */
+.gallery-content {
+    width: 80vw; /* Make the gallery wider */
+    max-width: 2000px; /* Maximum width for the gallery */
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    min-height: 500px; /* Ensure a minimum height for the gallery */
+    display: flex; /* Use flexbox to center .galleria */
+    justify-content: center; /* Center .galleria horizontally */
+    align-items: center; /* Center .galleria vertically */
+}
+
+.galleria {
+    display: flex; /* **Key change: Use flexbox for the image container** */
+    flex-wrap: wrap; /* Allow images to wrap to the next line if space is limited */
+    gap: 15px; /* Space between images */
+    justify-content: center; /* Center images within the galleria div */
+    align-items: center; /* Align images vertically within the galleria div */
+    width: 100%; /* Ensure galleria takes full width of its parent */
+}
+
+.galleria img {
+    width: calc(35% - 15px); /* Approximately 4 images per row with gap. Adjust 25% for more/fewer. */
+    max-width: 650px; /* Limit the maximum width of each image */
+    height: 500px;
+    border-radius: 8px; /* Slightly rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow to images */
+    object-fit: cover; /* Ensures images cover their area without distortion */
+    aspect-ratio: 16/9; /* Maintain a 16:9 aspect ratio for images (adjust as needed) */
+}
+
+/* --- Kiss Emoji Rain Styling --- */
+#kiss-emoji-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.falling-emoji {
+    position: absolute;
+    white-space: nowrap;
+    transform: translateY(-100%);
+    animation-name: fall-rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    will-change: transform, opacity;
+}
+
+@keyframes fall-rotate {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(200vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .galleria img {
+        width: calc(33.33% - 15px); /* Show 3 images per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; /* Stack videos vertically on smaller screens */
+        align-items: center; /* Center stacked videos */
+    }
+
+    .video-container video {
+        width: 90vw; /* Videos take up more width on smaller screens */
+        max-width: none; /* Remove max-width for smaller screens */
+    }
+
+    .gallery-content {
+        width: 90vw; /* Gallery takes up more width on smaller screens */
+        padding: 15px; /* Slightly less padding on smaller screens */
+    }
+
+    .galleria img {
+        width: calc(50% - 15px); /* Show 2 images per row on small screens */
+        max-width: none; /* Remove max-width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .galleria img {
+        width: 90%; /* Stack images vertically on very small screens */
+        margin: 0 auto; /* Center single images */
+    }
+}
