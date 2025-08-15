@@ -7,52 +7,62 @@
     <title>sborra</title>
     <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
     <style>
+        /* Reset base */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
+            font-family: 'Rye', cursive;
             background-image: url(img/br.jpeg);
+            background-size: cover;
+            background-position: center;
         }
 
         .neri {
             background-image: url(img/br.jpeg);
-            width: 100vw;
-            height: 300px;
+            width: 100%;
+            height: 30vh;
+            background-size: cover;
+            background-position: center;
         }
 
         .neri2 {
             background-image: url(img/brig.jpg);
-            background-size: contain;
-            width: 100vw;
-            height: 300px;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            min-height: 50vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 20px;
+            text-align: center;
         }
 
         .ft {
-            font-family: 'Rye', cursive;
-            font-size: 120px;
+            font-size: 8vw;
             color: #360d0d;
             text-shadow: 2px 2px 0 #000,
                 -2px -2px 0 #000,
                 4px 4px 5px rgba(0, 0, 0, 0.5);
-            letter-spacing: 5px;
+            letter-spacing: 0.3em;
             margin: 0;
         }
 
         .info-btn {
-            font-family: 'Rye', cursive;
-            font-size: 24px;
+            font-size: 4vw;
             background-color: #a0522d;
             color: #fff;
             border: 3px solid #000;
-            padding: 10px 20px;
-            margin-top: 10px;
+            padding: 0.8em 1.5em;
+            margin-top: 15px;
             cursor: pointer;
             text-shadow: 1px 1px 0 #000;
             transition: background-color 0.3s, transform 0.2s;
             border-radius: 10px;
-            /* bottone arrotondato */
         }
 
         .info-btn:hover {
@@ -72,30 +82,30 @@
             justify-content: center;
             align-items: center;
             z-index: 999;
+            padding: 20px;
         }
 
         .popup {
             background-color: #f2e0b6;
             border: 5px solid #5b3a29;
             padding: 20px;
-            width: 80%;
+            width: 90%;
             max-width: 500px;
             font-family: 'Rye', cursive;
             text-align: center;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
             position: relative;
             border-radius: 25px;
-            /* bordo arrotondato */
         }
 
         .popup h2 {
             margin-top: 0;
-            font-size: 40px;
+            font-size: 6vw;
             color: #5b3a29;
         }
 
         .popup p {
-            font-size: 20px;
+            font-size: 4vw;
             color: #3b2a1e;
         }
 
@@ -103,7 +113,7 @@
             position: absolute;
             top: 5px;
             right: 10px;
-            font-size: 20px;
+            font-size: 5vw;
             background: none;
             border: none;
             color: #5b3a29;
@@ -112,6 +122,53 @@
 
         .close-btn:hover {
             color: red;
+        }
+
+        /* Media Queries per dispositivi piccoli */
+        @media (max-width: 768px) {
+            .ft {
+                font-size: 12vw;
+            }
+
+            .info-btn {
+                font-size: 5vw;
+                padding: 0.7em 1.2em;
+            }
+
+            .popup h2 {
+                font-size: 8vw;
+            }
+
+            .popup p {
+                font-size: 5vw;
+            }
+
+            .close-btn {
+                font-size: 6vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ft {
+                font-size: 14vw;
+            }
+
+            .info-btn {
+                font-size: 6vw;
+                padding: 0.6em 1em;
+            }
+
+            .popup h2 {
+                font-size: 10vw;
+            }
+
+            .popup p {
+                font-size: 6vw;
+            }
+
+            .close-btn {
+                font-size: 8vw;
+            }
         }
     </style>
 </head>
@@ -132,13 +189,12 @@
             <button class="close-btn" onclick="chiudiPopup()">✖</button>
             <h2>⚠ Avviso dello Sceriffo ⚠</h2>
             <p>
-                Sotto ordine del famigerato <b>Michele Ciardiello</b>,le leggendarie e disordinate
-                <i>Brigate Rosse</i> hanno rapito Aldo Moro un importante politico e statista italiano del Novecento
-                Nato il 23 settembre 1916 a Maglie (Lecce)<br><br>
+                Sotto ordine del famigerato <b>Michele Ciardiello</b>, le leggendarie e disordinate
+                <i>Brigate Rosse</i> hanno rapito Aldo Moro, un importante politico e statista italiano del Novecento
+                nato il 23 settembre 1916 a Maglie (Lecce).<br><br>
                 Considerato uno degli artefici del “compromesso storico”, cioè un tentativo di collaborazione politica
-                tra DC e Partito Comunista Italiano (PCI) negli anni ’70. <br>
-                 I testimoni affermano che il gruppo si è
-                allontanato a bordo di una panda rossa<br><br>
+                tra DC e Partito Comunista Italiano (PCI) negli anni ’70.<br>
+                I testimoni affermano che il gruppo si è allontanato a bordo di una panda rossa.<br><br>
                 <b>RICOMPENSA:</b> un barile di sborra
             </p>
         </div>
